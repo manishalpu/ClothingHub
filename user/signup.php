@@ -2,7 +2,7 @@
 ?>
 <html>
     <head>
-        <title>Healthcare </title>
+        <title>Clothing Hub</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -57,11 +57,6 @@
                                         <br>
                                         <input class="form-control form-style" type="text" name="city" placeholder="Enter City">
                                         <br>
-                                        <select class="form-control dropdown" name="gender"><br>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
-										<br>
 										<input class="form-control form-style" type="tel" name="phone1" placeholder="Enter Phone no.">
 										<br>
                                         <button class="btn btn-info" type="submit">Submit</button>

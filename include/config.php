@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','homecare1');
+$conn = mysqli_connect('localhost:3307','root','','mensware');
 // Check connection
 if (mysqli_connect_errno())
 {

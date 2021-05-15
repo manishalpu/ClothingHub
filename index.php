@@ -1,10 +1,10 @@
 <?php
 include('include/config.php');
-
+session_start();
 ?>
 <html>
     <head>
-        <title>Healthcare </title>
+        <title>Clothing Hub</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://use.fontawesome.com/4d8ec76cab.js"></script>
@@ -38,24 +38,26 @@ include('include/config.php');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><b>HHC</b></a>
+                    <a class="navbar-brand" href="index.php"><b>CHI</b></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav" style="margin-left: 30%;">
+                    <ul class="nav navbar-nav" style="margin-left: 35%;">
                         <li class="active"><a href="./index.php"><b>Home</b></a></li>
-                        <li><a href="./homecare.php"><b>Homecare</b></a></li>
-                        <li><a href="./healthcare.php"><b>Healthcare</b></a></li>
+                        <li><a href="./mens.php"><b>Men</b></a></li>
+                        <li><a href="./womens.php"><b>Women</b></a></li>
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php
                         if(empty($_SESSION['id']))
                         {
-                            echo '<li><a href="./login.php"><span class="glyphicon glyphicon-log-in"></span><b> Login</b></a></li>';
+                            echo '<li><a href="./user/login.php"><span class="glyphicon glyphicon-log-in"></span><b> Login</b></a></li>';
                         }
                         else
-                        {
-                            echo '<li><a href="./logout.php"><span class="glyphicon glyphicon-log-in"></span><b>Logout</b></a></li>';
+                        {   
+                            $userName = $_SESSION['userName'];
+                            echo "<li><a href='./user/profile.php'><span class='glyphicon-log-in'></span><b>$userName</b></a></li>";
+                            echo '<li><a href="./user/logout.php"><span class="glyphicon glyphicon-log-in"></span><b>Logout</b></a></li>';
                         }
                         ?>
                         
@@ -66,10 +68,11 @@ include('include/config.php');
         
             <div class="col-sm-12 text-center main-header pt5">
                 <div id="particles-js"></div>
-                <h3 class="text-muted h1 " style="color:#fff;">The Best Health and Home Care Website</h3>
-                <h5 class="text-muted h2" style="color:#fff;">We Believe To Deliver Feelings</h5>
+                <h3 class="text-muted h1 " style="color:#fff;">Style is a way to say who you are without having to speak</h3>
+                <h5 class="text-muted h2" style="color:#fff;">We Believe To Deliver Best of You</h5>
                 <br><br>
-                <button class="btn btn-warning h3"><a href="healthcare.php" style="color:#fff;">Healthcare</a></button><button class="btn btn-danger h3"><a href="homecare.php" style="color:#fff;">Homecare</a></button>
+                <button class="btn btn-warning h3"><a href="mens.php" style="color:#fff;">Men</a></button>
+                <button class="btn btn-danger h3"><a href="womens.php" style="color:#fff;">Women</a></button>
             </div>
             <div class="col-sm-12 text-center">
                 <br>
@@ -77,13 +80,13 @@ include('include/config.php');
                 <br>
                 <div class="row banner">
                         <div class="col-sm-6 white" >
-                                <img src="img/works.png" style="width:100%;height:450px;">
+                                <img src="img/Mens/CoatsSet.jpg" style="width:auto;height:450px;">
                             </div>
                             <div class="col-sm-6"> 
                                 <br>
-                                <h1 class="text-muted h1">Healthcare</h1>
+                                <h1 class="text-muted h1">Men</h1>
                                 <br><br>
-                                <h3 class="text-muted">Health Care includes the skilled medical professionals which help you to take the best doctors appointments near you.</h5>
+                                <h3 class="text-muted">We Provide you with Best Style and Fashion with quick delivery.</h5>
                             </div>
 
                 </div>
@@ -91,19 +94,19 @@ include('include/config.php');
                 <div class="row banner">
                         <div class="col-sm-6"> 
                             <br>
-                            <h1 class="text-muted h1">Homecare</h1>
-                            <br>
-                                <br>
-                            <h3 class="text-center">Home Care offers a variety of home services. The vendors come with fully equipped with cleaning supplies to provide the best services.</h5>
+                            <h1 class="text-muted h1">Womens</h1>
+                            <br> <br>
+                            <h3 class="text-center">Deliver you with Unique and Iconic Fashion from around the world and provide you with fashion designs of best designer's in the world.</h5>
                         </div>
                         <div class="col-sm-6">
-                                <img src="img/facility.png" style="width:100%;height:450px;">
-    
+                                <img src="img/Womens/Street9WomenSolidMaxiDress.png" style="width:auto;height:450px;">
+                        
                         </div>
-
                 </div>
                 
             </div>
+            
+            <br/>
             <div class="col-sm-12 text-center  health1" style="background:#2c3e50;" >
                 
                 <div clas="row">
@@ -111,42 +114,54 @@ include('include/config.php');
                     <div class="col-md-12">
                         <br><br>
                 
-                        <h3 class="text-muted h1" style="color:#fff;">Healthcare Services We Provide</h3>
+                        <h3 class="text-muted h1" style="color:#fff;">Men's Collection</h3>
                         <br>
                         <div class="col-sm-4 text-center pt2" >
                             <div class="card">
-                                <img src="img/healthcare/physi1.jpg" style="width:100%;height:140px;" >
-                                <h3 class="text-muted" style="margin-left:-40px;">General Physician</h3>
+                                <a href="categoryFilterSelect.php?category=1&gender=1">
+                                    <img src="img/Mens/StripedMenRoundTShirtTopWear.jpeg" style="width:auto;height:240;" >
+                                    <h3 class="text-muted" style="margin-left:-40px;">Top Wear</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center pt2" >
                             <div class="card">
-                                <img src="img/healthcare/radio1.jpg"  style="width:100%;height:140px;">
-                                <h3 class="text-muted" style="margin-left:-40px;">Sonography</h3>
+                                <a href="categoryFilterSelect.php?category=2&gender=1">
+                                    <img src="img/Mens/SlimMenDarkBlueJeansBottomWear.jpeg"  style="width:auto;height:240;">
+                                    <h3 class="text-muted" style="margin-left:-40px;">Bottom Wear</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center pt2"  >
                             <div class="card">
-                                <img src="img/healthcare/cardio.png" style="height:140px;width:100%;" >
-                                <h3 class="text-muted" style="margin-left:-40px;">Cardiologist</h3>
+                                <a href="categoryFilterSelect.php?category=3&gender=1">
+                                    <img src="img/Mens/ParkAvenueBandhgalaSuitSolidMenSuit.jpeg" style="width:auto;height:240;" >
+                                    <h3 class="text-muted" style="margin-left:-40px;">Suit, Blazers & Waistcoats</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center pt2">
                             <div class="card">
-                                <img src="img/healthcare/eye1.jpg"  style="width:100%;height:140px;">
-                                <h3 class="text-muted" style="margin-left:-40px;">Eye Specialist</h3>
+                                <a href="categoryFilterSelect.php?category=4&gender=1">
+                                    <img src="img/Mens/FullSleeveSolidMenSweatshirt.jpeg"  style="width:auto;height:240;">
+                                    <h3 class="text-muted" style="margin-left:-40px;">Winter Wear</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center pt2 " >
                             <div class="card">
-                                <img src="img/healthcare/dentist1.jpg"  style="width:100%;height:140px;">
-                                <h3 class="text-muted" style="margin-left:-40px;">Dentist</h3>
+                                <a href="categoryFilterSelect.php?category=5&gender=1">
+                                    <img src="img/Mens/ElepantsMenSolidCottonBlendStraightKurta.jpeg"  style="width:auto;height:240;">
+                                    <h3 class="text-muted" style="margin-left:-40px;">Ethnic Wear</h3>
+                                </a>
                             </div>
                         </div>
                         <div class="col-sm-4 text-center pt2" >
                             <div class="card">
-                                <img src="img/healthcare/lab1.jpg"  style="width:100%;height:140px;">
-                                <h3 class="text-muted" style="margin-left:-40px;">Homeopathy</h3>
+                                <a href="categoryFilterSelect.php?category=6&gender=1">
+                                    <img src="img/Mens/aadiCasualLongBoots.jpeg"  style="width:auto;height:240;">
+                                    <h3 class="text-muted" style="margin-left:-40px;">FootWear</h3>
+                                </a>
                             </div>
                         </div>
 
@@ -160,46 +175,58 @@ include('include/config.php');
             
             <div class="col-sm-12 text-center  health1" style="background:#2c3e50;" >
                 <br><br>
-                <h3 class="text-muted h1" style="color:#fff;">Homecare Services We Provide</h3>
+                <h3 class="text-muted h1" style="color:#fff;">Women</h3>
                 <br>
                 
 
                 <div class="col-sm-4 text-center pt2" >
                     <div class="card">
-                        <img src="img/homecare/cleaning.jpg" style="width:100%;height:140px;" >
-                        <h3 class="text-muted" style="margin-left:-40px;">Home Cleaning</h3>
+                        <a href="categoryFilterSelect.php?category=1&gender=2">
+                            <img src="img/Womens/DillingerPrintedWomenRoundNeckDarkBlueT-Shirt.jpeg" style="width:auto;height:240;" >
+                            <h3 class="text-muted" style="margin-left:-40px;">Top Wear</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center pt2" >
                     <div class="card">
-                        <img src="img/homecare/cough.jpg" style="width:100%;height:140px;" >
-                        <h3 class="text-muted" style="margin-left:-40px;">Sofa Fitting</h3>
+                        <a href="categoryFilterSelect.php?category=7&gender=2">
+                            <img src="img/Womens/MissChaseWomen Maxi Brown Dress.jpeg" style="width:auto;height:240;" >
+                            <h3 class="text-muted" style="margin-left:-40px;">Dresses</h3>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="col-sm-4 text-center pt2" >
                     <div class="card" >
-                        <img src="img/homecare/gardening.jpg" style="width:100%;height:140px;" >
-                        <h3 class="text-muted" style="margin-left:-40px;">Gardening</h3>
+                        <a href="categoryFilterSelect.php?category=5&gender=2">
+                            <img src="img/Womens/Solid Fashion Lycra Blend Saree  (Purple).jpeg" style="width:auto;height:240;" >
+                            <h3 class="text-muted" style="margin-left:-40px;">Ethnic Wear</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center pt2">
                     
                     <div class="card">
-                        <img src="img/homecare/tap.jpg" style="width:100%;height:140px;" >
-                        <h3 class="text-muted" style="margin-left:-40px;">Plumber</h3>
+                        <a href="categoryFilterSelect.php?category=8&gender=2">
+                            <img src="img/Womens/Skinny Women Blue Jeans.jpeg" style="width:auto;height:240;" >
+                            <h3 class="text-muted" style="margin-left:-40px;">Jeans</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center pt2" >
                     <div class="card">
-                        <img src="img/homecare/electrician.jpeg" style="width:100%;height:140px;">
-                        <h3 class="text-muted" style="margin-left:-40px;">Electrician</h3>
+                        <a href="categoryFilterSelect.php?category=6&gender=2">
+                            <img src="img/Womens/Flip Flops.jpeg" style="width:auto;height:240;">
+                            <h3 class="text-muted" style="margin-left:-40px;">FootWear</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center pt2" >
                     <div class="card">
-                        <img src="img/homecare/wall_painting.jpg" style="width:100%;height:140px;" >
-                        <h3 class="text-muted" style="margin-left:-40px;">Wall Painting</h3>
+                        <a href="categoryFilterSelect.php?category=4&gender=2">
+                            <img src="img/Womens/Full Sleeve Solid Women Denim Jacket.jpeg" style="width:auto;height:240;" >
+                            <h3 class="text-muted" style="margin-left:-40px;">Winter Wear</h3>
+                        </a>
                     </div>
                 </div>
 
@@ -220,38 +247,34 @@ include('include/config.php');
                             
                                 <h1 style="color:#fff;"><b>
                                     <?php
-                                    $sql1 = "SELECT * FROM doctors";
+                                    $sql1 = "SELECT * FROM fashion_designers";
                                     $result=mysqli_query($conn,$sql1);
                                     $row = mysqli_num_rows($result);
                                     echo $row;
 
                                     ?></b></h1>
-                                <h3 class="text-muted" style="color:#fff;">Doctor's</h3>
+                                <h3 class="text-muted" style="color:#fff;">Fashion Designers's</h3>
                             
                         </div>
                         <div class="col-sm-3 text-center pt2" >
                             
                                 <h1 class="text-black" style="color:#fff;"><b>
                                 <?php
-                                    $sql1 = "SELECT * FROM facility";
+                                    $sql1 = "SELECT * FROM collections";
                                     $result=mysqli_query($conn,$sql1);
                                     $row = mysqli_num_rows($result);
                                     echo $row;
 
                                     ?>
                                 </b></h1>
-                                <h3 class="text-muted" style="color:#fff;">Vendor's</h3>
+                                <h3 class="text-muted" style="color:#fff;">Collection's</h3>
                             
                         </div>
                         <div class="col-sm-3 text-center pt2" >
                             
                                 <h1 class="text-black" style="color:#fff;"><b>
                                 <?php
-                                    $sql1 = "SELECT * FROM appointment";
-                                    $result=mysqli_query($conn,$sql1);
-                                    $row = mysqli_num_rows($result);
-
-                                    $sql2 = "SELECT * FROM fac_appoint";
+                                    $sql2 = "SELECT * FROM orders";
                                     $result1=mysqli_query($conn,$sql2);
                                     $row1 = mysqli_num_rows($result1);
                                     echo $row+$row1;
@@ -265,7 +288,7 @@ include('include/config.php');
                             
                                 <h1 class="text-black" style="color:#fff;"><b>
                                 <?php
-                                    $sql1 = "SELECT * FROM users";
+                                    $sql1 = "SELECT * FROM customers";
                                     $result=mysqli_query($conn,$sql1);
                                     $row = mysqli_num_rows($result);
                                     echo $row;
@@ -294,9 +317,9 @@ include('include/config.php');
             <div class="col-sm-12 text-center health1">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h3 class="h3" style="color:#fff;">Home n Health Care</h3>
-                        <h4 style="color:#fff;">Contact : 994959908</h4>
-                        <h4 style="color:#fff;">Queries & help : bachurahul111@gmail.com</h4>
+                        <h3 class="h3" style="color:#fff;">Clothing Hug Inc</h3>
+                        <h4 style="color:#fff;">Contact : 7464324825</h4>
+                        <h4 style="color:#fff;">Queries & help : clothinghubinc@gmail.com</h4>
                         <h4 style="color:#fff;">Address : Lovely Professional University</h4>
                     </div>
                     <div class="col-sm-6 pt3">
@@ -312,7 +335,7 @@ include('include/config.php');
 
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3" style="color:#fff;"><h4>© 2019 Copyright:
-                  bachurahul</h4>
+                  Clothing Inc.</h4>
                 </div>
                     <!-- Copyright -->
 

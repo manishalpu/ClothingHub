@@ -10,7 +10,7 @@ if(empty($_SESSION['id']))
 
     echo "<script>
     alert('Successfully logged Out');
-    window.location.href='../login.php';
+    window.location.href='./../index.php';
     </script>";
 
 }

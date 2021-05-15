@@ -49,7 +49,7 @@ else
 ?>
 <html>
     <head>
-        <title>Healthcare </title>
+        <title>Clothing Hub</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 

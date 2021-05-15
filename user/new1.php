@@ -6,23 +6,34 @@ $email = $_POST['email1'];
 $pass = $_POST['pass'];
 $address = $_POST['address'];
 $city = $_POST['city'];
-$gender = $_POST['gender'];
 $phone1 = $_POST['phone1'];
 echo $email;
 echo $pass;
 
+$insertCustomer = "INSERT INTO customers(CustomerName, address, city, phoneNumnber) VALUES('$name', '$address', '$city', '$phone1');";
 
-$sql3="INSERT INTO users(email,pass,address,fullname,city,gender,phone1) VALUES('$email', '$pass', '$address', '$name', '$city', '$gender', $phone1)";
       
-$result =mysqli_query($conn,$sql3);
+$result =mysqli_query($conn,$insertCustomer);
+$custId = mysqli_insert_id($conn);
 if($result)
 {
-    
-    echo "<script>
-    alert('Sign Up Successfull please logged in');
-    window.location.href='login.php';
-    </script>";
-
+    $sql3="INSERT INTO users(email,password,customerId) VALUES('$email', '$pass', '$custId')";
+    $result = mysqli_query($conn,$sql3);
+    if($result){
+        echo "<script>
+            alert('Sign Up Successfull please logged in');
+            window.location.href='login.php';
+            </script>";
+    }
+    else
+    {
+        $deleteCus = "DELETE FROM customers where id = '$custId';";
+        $result = mysqli_query($conn,$deleteCus);
+        echo "<script>
+            alert('Sign Up Failed, please try again in some time');
+            window.location.href='signup.php';
+            </script>";
+    }
 }
 else
 {

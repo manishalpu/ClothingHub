@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Healthcare </title>
+        <title>Clothing Hub</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -27,7 +27,7 @@
             ?>
 
             <div class="col-sm-12 header">
-                <h3 class="h3" style="color:white;">Home > User >login</h3>
+                <h3 class="h3" style="color:white;">Home > login</h3>
             </div>
             <div class="col-md-3">
 
